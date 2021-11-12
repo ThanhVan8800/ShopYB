@@ -30,7 +30,7 @@ class CreateFormRequest extends FormRequest
     public function messages() : array
     {
         return[
-        'name.required'=>'vui lòng nhập thông tin'
+        'name.required'=>'Vui lòng nhập thông tin!'
         ];
     }
 }
