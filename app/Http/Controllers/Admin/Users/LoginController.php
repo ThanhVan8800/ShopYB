@@ -26,11 +26,13 @@ class LoginController extends Controller
             if(Auth::attempt([
                 'email'=>$request->input('email'),
                 'password'=>$request->input('password')
+                // kiểm tra có khớp vs data không, nếu không khớp không cho vào
+                
             ],$request->input('remember')))
                     {
                         return redirect()->route('admin');
                     }
-                 $request  -> Session()->flash('error','email hoặc password không đúng vui lòng đăng nhập lại!');// luu y!
+                 $request -> Session()->flash('error','Email hoặc password không đúng vui lòng đăng nhập lại!');// luu y!
                     return redirect()->back();
         }
 }

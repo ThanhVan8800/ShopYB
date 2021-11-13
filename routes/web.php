@@ -29,12 +29,17 @@ Route::middleware(['auth'])->group(function(){
         //Menus
         Route::prefix('menus')->group(function(){
                 Route::get('add',[MenuController::class,'create']);
-                Route::post('add',[MenuController::class,'store']);
+                Route::post('add',[MenuController::class,'store']);// menu validate form xác thực 
+                Route::get('list',[MenuController::class,'index']);
+                Route::get('edit/{menu}',[MenuController::class,'show']);
+                Route::post('edit/{menu}',[MenuController::class,'update']);
+                Route::delete('destroy',[MenuController::class,'destroy']);
         });
     });
 
 });
 // Route::get('doc-so/{a}/{b}',function($a,$b){
 //     return $a + $b;
+
 // });
 
