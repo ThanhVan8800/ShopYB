@@ -21,7 +21,7 @@ class MenuController extends Controller
         return view('admin.menu.add',
             [
                 'title'=>'Thêm danh mục mới',
-                 'menus'=> $this->menuService->getParent()// mô hình 2 cấp id cha,con
+                'menus'=> $this->menuService->getParent()// mô hình 2 cấp id cha,con
             ]);
     }
     // hàm store kiểm tra người dùng có nhập không

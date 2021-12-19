@@ -28,14 +28,12 @@ class Helper
                               onclick="RemoveRow('.$menu->id.', \'/admin/menus/destroy\')" >
                               <i class="far fa-trash-alt"></i>
                               </a>
-                                
-
                             </td>
                     </tr>
                     ';
                    
-                    unset($menus[$key]); // đệ quy
-                    $html .= self::menu($menus, $menu->id, $char . '--');
+                    unset($menus[$key]); // đệ quy lần 1 hủy xong chạy tiếp ok chưa
+                    $html .= self::menu($menus, $menu->id, $char . '--'); // tự gọi nó lại lần nữa
                 };
             }
             return $html;   //return để đọc cái html xuất ra 

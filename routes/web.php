@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\MenuController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\Users\LoginController;
+use App\Http\Services\Product\UploadService;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,7 +37,17 @@ Route::middleware(['auth'])->group(function(){
                 Route::get('edit/{menu}',[MenuController::class,'show']);
                 Route::post('edit/{menu}',[MenuController::class,'update']);
                 Route::delete('destroy',[MenuController::class,'destroy']);
+                
         });
+        #Product
+        Route::prefix('products')->group(function(){
+            Route::get('add',[ProductController::class,'create']);
+            Route::post('add',[ProductController::class,'store']);
+            Route::get('list',[ProductController::class,'index']);
+        });
+        #Upload dùng cho up ảnh lên
+        // Route::post('upload/services',[UploadController::class,'store']);
+        Route::post('upload/services',[UploadController::class,'store']);
     });
 
 });
