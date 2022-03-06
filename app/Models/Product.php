@@ -21,7 +21,16 @@ class Product extends Model
     // liên kết product vs menu, mỗi sp có 1 menu hasone
     public function menu()
     {
-        return $this->hasOne(Menu::class, 'id', 'menu_id');
+        return $this->hasOne(Menu::class, 'id', 'menu_id')
+        ->withDefault(['name' => ' ']);
     }
-   
+    public function scopeSearch($query)
+    {
+        if(request('key')){
+            $key = request('key');
+            $query = $query->where('name','like','%' .$key . '%');
+        }
+        return $query;
+    }
+
 }

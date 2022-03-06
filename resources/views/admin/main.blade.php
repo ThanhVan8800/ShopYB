@@ -32,18 +32,17 @@
         </nav>
         <!-- /.navbar -->
 
-      @include('admin.sidebar')
+    @include('admin.sidebar')
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-          
+        
 
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
 
                 @include('admin.alert')
-                  
                     <div class="row">
                     <!-- left column -->
                     <div class="col-md-12">
@@ -53,7 +52,7 @@
                             <h3 class="card-title">{{$title}} <!--<small>jQuery Validation</small>--></h3>
                         </div>
                         <!--NOI DUNG GHI O DAY-->
-                             @yield('content')
+                            @yield('content')
                     <!-- right column -->
                     <div class="col-md-6">
                 </div><!-- /.container-fluid -->

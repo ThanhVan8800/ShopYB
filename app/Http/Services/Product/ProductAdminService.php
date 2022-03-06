@@ -1,6 +1,4 @@
 <?php
-
-
 namespace App\Http\Services\Product;
 
 
@@ -48,5 +46,31 @@ class ProductAdminService
     public function get()
     {
         return Product::with('menu')->orderByDesc('id')->paginate(15);// menu kết bản sp vs menu
+    }
+
+    public function update($request, $product)
+    {
+        $isValidPrice = $this->isValidPrice($request);
+        if($isValidPrice == false) return false;
+        try{
+            $product->fill($request->input());
+            $product->save();
+            Session::flash('success','Cập nhật thành công');
+        }catch(\Exception $err){
+            Session:flash('error','Có lỗi xảy ra');
+            \Log::info($err->getMessage());
+            return false;
+        }
+        return true;
+    }
+    public function delete( $request)
+    {
+        $product = Product::where('id' , $request->input('id'))->first();
+        if($product)
+        {
+            $product->delete();
+            return true;
+        }
+        return false;
     }
 }

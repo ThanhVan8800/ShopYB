@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body,
+.main-menu>li>a,
+.ltext-102 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.stext-104 {
+    font-size: 21px;
+}

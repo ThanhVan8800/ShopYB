@@ -32,7 +32,7 @@ class LoginController extends Controller
                     {
                         return redirect()->route('admin');
                     }
-                 $request -> Session()->flash('error','Email hoặc password không đúng vui lòng đăng nhập lại!');// luu y!
+                $request -> Session()->flash('error','Email hoặc password không đúng vui lòng đăng nhập lại!');// luu y!
                     return redirect()->back();
         }
 }

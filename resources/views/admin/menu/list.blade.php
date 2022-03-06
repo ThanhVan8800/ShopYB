@@ -13,7 +13,7 @@
             </thead>
             <tbody>
                 <!-- đệ quy, tạo helper, có thể viết trực tiếp chỗ này -->
-                 {!! \App\Helpers\Helper::menu($menus) !!}
+                {!! \App\Helpers\Helper::menu($menus) !!}
                 <!-- đọc được html, biên dịch dc html, $menus dc truyền từ controller -->
             </tbody>
         </table>
