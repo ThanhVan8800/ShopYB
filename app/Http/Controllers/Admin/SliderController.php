@@ -16,7 +16,7 @@ class SliderController extends Controller
         public function create()
         {
             return view('admin.slider.add',[
-                'title' => 'Them slider'
+                'title' => 'Thêm slider'
             ]);
         }
         public function store(Request $request)

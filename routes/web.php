@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\CartController;
+use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Services\Product\UploadService;
 use Illuminate\Support\Facades\Route;
@@ -62,6 +64,21 @@ Route::middleware(['auth'])->group(function(){
         #Upload dùng cho up ảnh lên
         // Route::post('upload/services',[UploadController::class,'store']);
         Route::post('upload/services',[UploadController::class,'store']);
+        #cart
+        Route::get('customers',[CartController::class,'index']);
+        Route::get('customers/view/{customer}',[CartController::class,'show']);
+
+        //coupon 
+        Route::prefix('coupons') ->group(function(){
+            Route::get('add',[CouponController::class,'create']);
+            Route::post('add',[CouponController::class,'store']);
+            Route::get('list',[CouponController::class,'index']);
+            Route::get('edit/{coupon}',[CouponController::class,'show']);
+            Route::post('edit/{coupon}',[CouponController::class,'update']);
+            Route::delete('destroy',[CouponController::class,'destroy']);
+            Route::get('delete/{coupon_id}',[CouponController::class,'delete']);
+        });
+        
     });
 
 });
@@ -71,14 +88,19 @@ Route::middleware(['auth'])->group(function(){
     Route::get('san-pham/{id}-{slug}.html',[App\Http\Controllers\ProductController::class,'index']);
     Route::post('add-cart',[App\Http\Controllers\CartController::class,'index']);
     Route::get('carts',[App\Http\Controllers\CartController::class,'show']);
-    Route::post('/update-cart',[App\Http\Controllers\CartController::class,'update']);
+    Route::post('update-cart',[App\Http\Controllers\CartController::class,'update']);
     Route::get('/carts/delete/{id}',[App\Http\Controllers\CartController::class,'destroy']);
     Route::post('carts',[App\Http\Controllers\CartController::class,'addCart']);
-
+    //Coupon
+    Route::post('/check-coupon',[App\Http\Controllers\CartController::class,'check_coupon']);
 
 
 
     Route::post('/tim-kiem',[App\Http\Controllers\ProductController::class, 'searchProduct']);
+
+
+    //send mail to
+    Route::get('/send-mail', [App\Http\Controllers\MailController::class,'sendmail']);
 
     // Route::get('carts',[App\Http\Controllers\CartController::class,'addCart']);
 // Route::get('doc-so/{a}/{b}',function($a,$b){

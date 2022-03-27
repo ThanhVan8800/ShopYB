@@ -48,4 +48,9 @@ class CartController extends Controller
 
         return redirect()->back();
     }
+    public function check_coupon(Request $request)
+    {
+        $data = $request->all();
+        dd($data);
+    }
 }

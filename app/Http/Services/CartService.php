@@ -7,6 +7,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use App\Models\Customer;
 use App\Models\Cart;
+use App\Jobs\SendMail;
 
 class CartService 
 {
@@ -90,6 +91,8 @@ class CartService
             $this->infoProductCart($carts, $customer->id);
             DB::commit();
             Session::flash('success','Đặt hàng thành công');
+            //queue
+            SendMail::dispatch($request->input('email'))->delay(now()->addSeconds(8));
             Session::forget('carts');
         }
         catch(Exception $e){
@@ -118,5 +121,9 @@ class CartService
             ];  
         }
         return Cart::insert($data);
+    }
+    public function getCustomers()
+    {
+        return Customer:: orderbyDesc('id')->paginate(15);
     }
 }

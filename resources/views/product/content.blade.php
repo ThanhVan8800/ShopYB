@@ -151,6 +151,9 @@
 						<li class="nav-item p-b-10">
 							<a class="nav-link" data-toggle="tab" href="#reviews" role="tab">Reviews (1)</a>
 						</li>
+						<li class="nav-item p-b-10">
+							<a class="nav-link" data-toggle="tab" href="#comments" role="tab">Binh luan (1)</a>
+						</li>
 					</ul>
 
 					<!-- Tab panes -->
@@ -304,6 +307,16 @@
 								</div>
 							</div>
 						</div>
+						<div class="tab-pane fade" id="comments" role="tabpanel">
+							<div class="row">
+								<div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto">
+									<div class="p-b-30 m-lr-15-sm">
+										<div id="fb-root"></div>
+										<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v13.0&appId=514048372971177&autoLogAppEvents=1" nonce="mfqHAbz9"></script>
+										<div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="" data-numposts="10"></div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -319,6 +332,5 @@
 			</span>
 		</div>
 	</section>
-		<h3>Sản phẩm liên quan</h3>
 	@include('product.list')
 @endsection

@@ -15,3 +15,8 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <!-- để sử dụng cho ajax -->
   @yield('head')
+  <style>
+    .hidden {
+        display: none;
+    }
+  </style>

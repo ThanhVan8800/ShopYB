@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cart extends Model
 {
     use HasFactory;
+    protected $timestamp = false;
     protected $fillable = [
         'customer_id',
         'product_id',
@@ -15,4 +16,8 @@ class Cart extends Model
         'price',
         
     ];
+    public function product()
+    {
+        return $this->hasOne(Product::class,'id','product_id') ;
+    }
 }

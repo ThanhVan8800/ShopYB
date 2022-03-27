@@ -90,8 +90,7 @@
 				</div>
 			</div>
 			<div id="loadProduct">
-				@include('product.list')
-
+				@include('product.list_home')
 			</div>
 			
 			<!-- Load more -->

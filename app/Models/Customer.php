@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\Cart;
 class Customer extends Model
 {
     use HasFactory;
@@ -15,4 +15,9 @@ class Customer extends Model
         'email',
         'content'
     ];
+    // 1 khách hàng có thể mua nhiều sản phẩm
+    public function carts()
+    {
+        return $this->hasMany(Cart::class,'customer_id','id');
+    }
 }

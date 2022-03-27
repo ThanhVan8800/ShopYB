@@ -16,13 +16,13 @@
                         <label for="menu">Url</label>
                         <input type="text" name="url" value="{{ old('url') }}" class="form-control"  placeholder="Nhập tên sản phẩm">
                     </div>
-</div>
+                </div>
 
                     <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="menu">Sap xep</label>
-                        <input type="number" name="sort_by" value="{{ old('sort_by') }}"  class="form-control" >
-                    </div>
+                        <div class="form-group">
+                            <label for="menu">Sắp xếp</label>
+                            <input type="number" name="sort_by" value="{{ old('sort_by') }}"  class="form-control" >
+                        </div>
                 </div>
             <div class="form-group">
                 <label for="menu">Ảnh Sản Phẩm</label>
