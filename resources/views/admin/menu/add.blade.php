@@ -1,7 +1,7 @@
 @extends('admin.main')
 <!-- kế thừa source admin -->
- @section('head')
- <script src="/ckeditor/ckeditor.js"></script>
+@section('head')
+<script src="/ckeditor/ckeditor.js"></script>
 
 @endsection 
 @section('content')

@@ -39,7 +39,7 @@
                     <label for="">Kích hoạt</label>
                         <div class="custom-control custom-radio">
                           <input class="custom-control-input" value="1" type="radio" id="active" name="active" 
-                             {{$menu->active == 1 ? 'checked=""' : ''}}>
+                              {{$menu->active == 1 ? 'checked=""' : ''}}>
                           <label for="active" class="custom-control-label">Có</label>
                         </div>
                         <div class="custom-control custom-radio">

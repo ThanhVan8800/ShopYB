@@ -1,0 +1,5 @@
+console.log// .warm// .warning
+confirm
+prompt(' nhap so tuoi cuar ban')
+set timeout(function(){ alert('thong bao')}, 1000)
+set interval
